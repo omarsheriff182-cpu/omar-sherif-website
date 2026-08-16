@@ -32,9 +32,9 @@ const CONTENT = {
   contact: {
     // TODO — replace with Omar's real handle / address before launch.
     instagramLabel: "Instagram",
-    instagramUrl: "#",
+instagramUrl: "https://www.instagram.com/omar_ssherif/",
     emailLabel: "Email",
-    emailUrl: "#",
+email: "omar.sheriff182@gmail.com",
   },
 
   nav: {
