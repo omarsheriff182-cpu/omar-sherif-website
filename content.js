@@ -25,7 +25,7 @@ const CONTENT = {
 
   brand: {
     name: "OMAR SHERIF",
-    statement: "Reconnecting Humans with Nature",
+    statement: "Reconnecting Humans with Nature✨",
     location: "Red Sea, Egypt",
   },
 
