@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Omar Sherif — Reconnecting Humans with Nature</title>
+<meta name="description" content="Omar Sherif is a Red Sea diving professional and underwater creator. Diving, guiding, courses and private experiences across El Quseir, Port Ghalib and Marsa Alam." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Omar Sherif — Reconnecting Humans with Nature" />
+<meta property="og:description" content="A Red Sea diver, PADI Instructor and underwater storyteller. Go below the surface." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#top">OMAR SHERIF</a>
+  <nav class="nav__links" id="navLinks" aria-label="Primary"></nav>
+</header>
+
+<!-- Depth gauge (signature element) -->
+<aside class="gauge" aria-hidden="true">
+  <span class="gauge__label" id="gaugeLabel">SURFACE</span>
+  <div class="gauge__track" id="gaugeTrack">
+    <div class="gauge__fill" id="gaugeFill"></div>
+    <div class="gauge__marker" id="gaugeMarker" style="top:0%"></div>
+  </div>
+</aside>
+
+<!-- Sound toggle -->
+<button class="sound-toggle" id="soundToggle" aria-pressed="false">
+  <span class="sound-toggle__dot"></span>
+  <span id="soundLabel">Sound Off</span>
+</button>
+<audio id="ambientAudio" loop preload="none"></audio>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__media" id="heroMedia"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <span class="eyebrow hero__eyebrow" id="heroEyebrow"></span>
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <p class="hero__subtitle" id="heroSubtitle"></p>
+      <div class="hero__ctas" id="heroCtas"></div>
+    </div>
+    <div class="hero__depth">
+      <span class="hero__depth-label" id="heroDepthLabel"></span>
+      <span class="hero__depth-indicator"></span>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section section--dark" id="intro">
+    <div class="container">
+      <div class="intro__grid">
+        <div class="intro__copy reveal">
+          <span class="eyebrow" id="introEyebrow"></span>
+          <div id="introLines"></div>
+        </div>
+        <div class="intro__media-stack">
+          <div class="intro__portrait reveal" id="introPortrait"></div>
+          <div class="intro__underwater reveal reveal-delay-2" id="introUnderwater"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="section section--deep" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="journeyEyebrow"></span>
+        <h2 class="display-2" id="journeyTitle"></h2>
+      </div>
+      <div class="journey__list" id="journeyList"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section class="section section--dark" id="experiences">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="experiencesEyebrow"></span>
+        <h2 class="display-2" id="experiencesTitle"></h2>
+      </div>
+      <div class="experiences__list" id="experiencesList"></div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="section section--deep" id="destinations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="destinationsEyebrow"></span>
+        <h2 class="display-2" id="destinationsTitle"></h2>
+      </div>
+      <div class="destinations__grid" id="destinationsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SPECIAL EXPERIENCES -->
+  <section id="special" aria-label="Special Experiences">
+    <div class="container" style="padding-top: var(--space-6);">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="specialEyebrow"></span>
+        <h2 class="display-2" id="specialTitle"></h2>
+      </div>
+    </div>
+    <div id="specialList"></div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section--dark" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="galleryEyebrow"></span>
+        <h2 class="display-2" id="galleryTitle"></h2>
+      </div>
+      <div class="gallery__grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--deep" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="testimonialsEyebrow"></span>
+        <h2 class="display-2" id="testimonialsTitle"></h2>
+      </div>
+      <div class="testimonials__grid" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONNECTION -->
+  <section class="connection" id="connection">
+    <canvas class="connection__particles" id="connectionCanvas" aria-hidden="true"></canvas>
+    <div class="connection__content reveal">
+      <h2 class="connection__title" id="connectionTitle"></h2>
+      <div class="connection__lines" id="connectionLines"></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <div class="container">
+      <span class="eyebrow final-cta__eyebrow reveal" id="finalEyebrow"></span>
+      <h2 class="final-cta__title reveal" id="finalTitle"></h2>
+      <p class="body-lg final-cta__copy reveal" id="finalCopy"></p>
+      <div class="final-cta__ctas reveal" id="finalCtas"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer__mark" id="footerMark"></div>
+    <div class="footer__tagline" id="footerTagline"></div>
+    <div class="footer__location" id="footerLocation"></div>
+  </div>
+  <div class="footer__links" id="footerLinks"></div>
+  <div class="footer__copyright" id="footerCopyright"></div>
+</footer>
+
+<script src="content.js"></script>
+<script src="media.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
