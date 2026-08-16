@@ -24,7 +24,7 @@
 const CONTENT = {
 
   brand: {
-    name: "OMAR SHERIF",
+    name: "Let's Go Diving!",
     statement: "Reconnecting Humans with Nature✨",
     location: "Red Sea, Egypt",
   },
@@ -227,7 +227,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   footer: {
-    tagline: "Reconnecting Humans with Nature",
+    tagline: "Reconnecting Humans with Nature✨",
   },
 
   depthGauge: {
