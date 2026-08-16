@@ -51,7 +51,7 @@ const CONTENT = {
     eyebrow: "Diving · Exploring · Experiencing",
     title: "OMAR SHERIF",
     subtitle: "Scuba Diving Instructor",
-    subtitle: "Reconnecting Humans with Nature✨",
+subtitle: "Reconnecting Humans with Nature ✨",
     ctaPrimary: { label: "Explore the Red Sea", href: "#experience" },
     ctaSecondary: { label: "Plan Your Dive", href: "#contact" },
     depthLabel: "SURFACE",
