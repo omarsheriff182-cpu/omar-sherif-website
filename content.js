@@ -48,9 +48,9 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   hero: {
-    eyebrow: "Reconnecting Humans with Nature✨",
+    eyebrow: "Scuba Diving Instructor",
     title: "OMAR SHERIF",
-    subtitle: "Scuba Diving Instructor",
+    subtitle: "Reconnecting Humans with Nature✨",
     ctaPrimary: { label: "Explore the Red Sea", href: "#experience" },
     ctaSecondary: { label: "Plan Your Dive", href: "#contact" },
     depthLabel: "SURFACE",
