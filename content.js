@@ -34,7 +34,7 @@ const CONTENT = {
     instagramLabel: "Instagram",
 instagramUrl: "https://www.instagram.com/omar_ssherif/",
     emailLabel: "Email",
-email: "omar.sheriff182@gmail.com",
+emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   nav: {
