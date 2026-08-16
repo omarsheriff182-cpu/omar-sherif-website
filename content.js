@@ -214,7 +214,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   connection: {
-    title: "Reconnect With Nature.",
+    title: "Reconnect With Nature✨.",
     lines: ["Slow down.", "Look closer.", "Go below the surface."],
   },
 
@@ -227,7 +227,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   footer: {
-    tagline: "Reconnecting Humans with Nature✨",
+    tagline: "Reconnecting Humans with Nature",
   },
 
   depthGauge: {
