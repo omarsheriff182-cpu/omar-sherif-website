@@ -201,9 +201,9 @@ const CONTENT = {
     title: "People I've Taken Below the Surface",
     // Structured placeholders only — replace with real guest quotes & photos.
     items: [
-      { type: "image", src: "assets/img/6666.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "guest-1" } },
-      { type: "image", src: "assets/img/a7a7.jpg", alt: "Guests and crew together on the boat's swim platform.", placeholderId: "guest-2" } },
-      { type: "image", src: "assets/img/bedo.jpg", alt: "Portrait of a guest.", placeholderId: "guest-3" } },
+      { quote: "A completely different way to experience the Red Sea.", name: , trip: , photo: { type: "image", src: "assets/img/6666.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "guest-1" } },
+      { quote: "Placeholder for a real guest reflection.", name: , trip: , photo: { type: "image", src: "assets/img/a7a7.jpg", alt: "Guests and crew together on the boat's swim platform.", placeholderId: "guest-2" } },
+      { quote: "Placeholder for a real guest reflection.", name: , trip: , photo: { type: "image", src: "assets/img/bedo.jpg", alt: "Portrait of a guest.", placeholderId: "guest-3" } },
     ],
   },
 
