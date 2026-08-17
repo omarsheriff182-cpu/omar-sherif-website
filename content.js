@@ -124,11 +124,11 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   experiences: {
-    eyebrow: "What We Can Do",
+    eyebrow: "Adventures",
     title: "What We Can Do",
     items: [
-      { id: "diving", title: "Diving", copy: "Explore the Red Sea, one dive at a time.", media: { type: "image", src: "assets/img/hero.jpg", poster: null, alt: "A diver in open blue water beside a Red Sea reef wall, bubbles rising.", placeholderId: "exp-diving" } },
-      { id: "guiding", title: "Guiding", copy: "You explore. I take care of the rest.", media: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "exp-guiding" } },
+      { id: "diving", title: "private Dive guide", copy: "Explore the Red Sea, one dive at a time.", media: { type: "image", src: "assets/img/hero.jpg", poster: null, alt: "A diver in open blue water beside a Red Sea reef wall, bubbles rising.", placeholderId: "exp-diving" } },
+      { id: "guiding", title: "guiding Dives", copy: "You explore. I take care of the rest.", media: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "exp-guiding" } },
       { id: "introduction", title: "Introduction Dives", copy: "Your first breath underwater starts here.", media: { type: "image", src: null, alt: "A first-time diver taking their first breath underwater with an instructor.", placeholderId: "exp-intro" } },
       { id: "courses", title: "Diving Courses", copy: "Learn to dive. Build confidence. Discover more.", media: { type: "video", src: null, poster: null, alt: "A dive student practicing skills in shallow water with an instructor.", placeholderId: "exp-courses" } },
       { id: "boat-trips", title: "Boat Trips", copy: "A day on the Red Sea is more than a trip.", media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Divers carrying gear along a jetty lined with dive tanks, boat trip preparation.", placeholderId: "exp-boat" } },
@@ -214,7 +214,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   connection: {
-    title: "Reconnect With Nature✨.",
+    title: "Reconnecting Humans with Nature✨.",
     lines: ["Slow down.", "Look closer.", "Go below the surface."],
   },
 
@@ -227,7 +227,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   footer: {
-    tagline: "Reconnecting Humans with Nature",
+    tagline: "Reconnecting Humans with Nature✨",
   },
 
   depthGauge: {
