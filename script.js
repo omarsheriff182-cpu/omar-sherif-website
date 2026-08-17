@@ -199,9 +199,8 @@
       const card = el("div", "testimonial-card reveal");
       const photo = el("div", "testimonial-card__photo");
       mountMedia(photo, t.photo);
-      const quote = el("p", "testimonial-card__quote", `“${t.quote}”`);
-      const meta = el("p", "testimonial-card__meta", `${t.name} — ${t.trip}`);
-      card.append(photo, quote, meta);
+      const emoji = el("p", "testimonial-card__emoji", t.emoji || "");
+      card.append(photo, emoji);
       grid.appendChild(card);
     });
   }
