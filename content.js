@@ -39,10 +39,10 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
 
   nav: {
     links: [
-      { label: "The Experience", href: "#experience" },
-      { label: "Experiences", href: "#experiences" },
-      { label: "Destinations", href: "#destinations" },
-      { label: "Gallery", href: "#gallery" },
+      { label: "Day in the Life", href: "#experience" },
+      { label: "Adventures", href: "#experiences" },
+      { label: "Spots", href: "#destinations" },
+      { label: "Media", href: "#gallery" },
       { label: "Contact", href: "#contact" },
     ],
   },
