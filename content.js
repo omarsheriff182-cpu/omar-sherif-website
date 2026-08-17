@@ -94,7 +94,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
         id: "arrive",
         title: "Arrive",
         copy: "Boat. Gear. Sea.",
-        media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Two divers carrying gear along a jetty lined with dive tanks.", placeholderId: "stage-arrive" },
+        media: { type: "image", src: "assets/img/pier-gear.jpeg", alt: "Two divers carrying gear along a jetty lined with dive tanks.", placeholderId: "stage-arrive" },
       },
       {
         id: "descend",
