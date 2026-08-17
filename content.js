@@ -132,7 +132,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
       { id: "introduction", title: "Introduction Dives", copy: "Your first breath underwater starts here.", media: { type: "image", src: "assets/img/intro.jpg", alt: "A first-time diver taking their first breath underwater with an instructor.", placeholderId: "exp-intro" } },
       { id: "courses", title: "Diving Courses", copy: "Learn to dive. Build confidence. Discover more.", media: { type: "image", src: "assets/img/course.jpg", alt: "A dive student practicing skills in shallow water with an instructor.", placeholderId: "exp-courses" } },
       { id: "boat-trips", title: "Boat Trips", copy: "A day on the Red Sea is more than a trip.", media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Divers carrying gear along a jetty lined with dive tanks, boat trip preparation.", placeholderId: "exp-boat" } },
-      { id: "dolphin-boat-trips", title: "Dolphin Trip", copy: "Go where the wild ones swim.", media: { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "Wild spinner dolphins swimming over a Red Sea reef.", placeholderId: "exp-dolphin" } },
+      { id: "dolphin-boat-trips", title: "Dolphin Trip", copy: "Go where the wild ones swim.", media: { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "Wild spinner dolphins swimming over a Red Sea reef.", placeholderId: "exp-dolphin" } },
     ],
   },
 
