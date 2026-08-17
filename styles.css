@@ -622,9 +622,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-3);
 }
-.testimonial-card { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
-.testimonial-card__photo { width: 100%; aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; }
-.testimonial-card__emoji { font-size: 1.6rem; line-height: 1; }
+.testimonial-card { display: flex; flex-direction: column; gap: var(--space-3); }
+.testimonial-card__photo { aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; }
+.testimonial-card__quote { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; line-height: 1.35; }
+.testimonial-card__meta { font-size: 0.75rem; color: var(--foam-dim); letter-spacing: 0.04em; }
 
 @media (max-width: 860px) {
   .testimonials__grid { grid-template-columns: 1fr; }
