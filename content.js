@@ -51,7 +51,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
     eyebrow: "Scuba Diving Instructor",
     title: "OMAR SHERIF",
     subtitle: "Reconnecting Humans with Nature✨",
-    ctaPrimary: { label: "Explore the Red Sea", href: "#experience" },
+    ctaPrimary: { label: "Explore", href: "#experience" },
     ctaSecondary: { label: "Plan Your Dive", href: "#contact" },
     depthLabel: "SURFACE",
     media: {
@@ -68,7 +68,7 @@ emailUrl: "mailto:omar.sheriff182@gmail.com",
     title: "Below the Surface",
     lines: [
       "I'm Omar.",
-      "A Red Sea diver, PADI Instructor and underwater storyteller.",
+      "PADI Instructor and underwater storyteller.",
       "I spend most of my time exploring the world beneath the surface — and helping others experience it for themselves.",
     ],
     portrait: {
