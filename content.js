@@ -13,45 +13,39 @@
  * the placeholder gradient/particle treatment is automatically
  * replaced by the real asset — see media.js for how this is
  * consumed. Nothing else needs to change.
- *
- * NOTE: the site currently uses no video anywhere. The Sataya/
- * dolphin sections that once played a local video clip now use
- * a real still photo (assets/img/dolphins-sataya.jpg) instead,
- * so the project stays lightweight with no large media files.
  * ============================================================
  */
 
 const CONTENT = {
 
   brand: {
-    name: "OMAR SHERIF",
-    statement: "Reconnecting Humans with Nature",
+    name: "Let's Go Diving!",
+    statement: "Reconnecting Humans with Nature✨",
     location: "Red Sea, Egypt",
   },
 
   contact: {
-    // TODO — replace with Omar's real handle / address before launch.
     instagramLabel: "Instagram",
-    instagramUrl: "#",
+    instagramUrl: "https://www.instagram.com/omar_ssherif/",
     emailLabel: "Email",
-    emailUrl: "#",
+    emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
 
   nav: {
     links: [
-      { label: "The Experience", href: "#experience" },
-      { label: "Experiences", href: "#experiences" },
-      { label: "Destinations", href: "#destinations" },
-      { label: "Journal", href: "#gallery" },
+      { label: "Day in the Life", href: "#experience" },
+      { label: "Adventures", href: "#experiences" },
+      { label: "Spots", href: "#destinations" },
+      { label: "Media", href: "#gallery" },
       { label: "Contact", href: "#contact" },
     ],
   },
 
   hero: {
-    eyebrow: "Diving · Exploring · Experiencing",
+    eyebrow: "Scuba Diving Instructor",
     title: "OMAR SHERIF",
-    subtitle: "Reconnecting Humans with Nature",
-    ctaPrimary: { label: "Explore the Red Sea", href: "#experience" },
+    subtitle: "Reconnecting Humans with Nature✨",
+    ctaPrimary: { label: "Explore", href: "#experience" },
     ctaSecondary: { label: "Plan Your Dive", href: "#contact" },
     depthLabel: "SURFACE",
     media: {
@@ -68,7 +62,7 @@ const CONTENT = {
     title: "Below the Surface",
     lines: [
       "I'm Omar.",
-      "A Red Sea diver, PADI Instructor and underwater storyteller.",
+      "PADI Instructor and underwater storyteller.",
       "I spend most of my time exploring the world beneath the surface — and helping others experience it for themselves.",
     ],
     portrait: {
@@ -94,7 +88,7 @@ const CONTENT = {
         id: "arrive",
         title: "Arrive",
         copy: "Boat. Gear. Sea.",
-        media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Two divers carrying gear along a jetty lined with dive tanks.", placeholderId: "stage-arrive" },
+        media: { type: "image", src: "assets/img/pier-gear.jpeg", alt: "Two divers carrying gear along a jetty lined with dive tanks.", placeholderId: "stage-arrive" },
       },
       {
         id: "descend",
@@ -118,21 +112,21 @@ const CONTENT = {
         id: "surface",
         title: "Surface",
         copy: "Come back with a story.",
-        media: { type: "image", src: "assets/img/beach-entry.jpg", alt: "A diver walking out of the water onto a Red Sea beach beside a boat and palm trees.", placeholderId: "stage-surface" },
+        media: { type: "image", src: "assets/img/beach-entry.jpeg", alt: "A diver walking out of the water onto a Red Sea beach beside a boat and palm trees.", placeholderId: "stage-surface" },
       },
     ],
   },
 
   experiences: {
-    eyebrow: "What We Can Do",
+    eyebrow: "Adventures",
     title: "What We Can Do",
     items: [
-      { id: "diving", title: "Diving", copy: "Explore the Red Sea, one dive at a time.", media: { type: "image", src: "assets/img/hero.jpg", poster: null, alt: "A diver in open blue water beside a Red Sea reef wall, bubbles rising.", placeholderId: "exp-diving" } },
-      { id: "guiding", title: "Guiding", copy: "You explore. I take care of the rest.", media: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "exp-guiding" } },
-      { id: "introduction", title: "Introduction Dives", copy: "Your first breath underwater starts here.", media: { type: "image", src: null, alt: "A first-time diver taking their first breath underwater with an instructor.", placeholderId: "exp-intro" } },
-      { id: "courses", title: "Diving Courses", copy: "Learn to dive. Build confidence. Discover more.", media: { type: "video", src: null, poster: null, alt: "A dive student practicing skills in shallow water with an instructor.", placeholderId: "exp-courses" } },
-      { id: "boat-trips", title: "Boat Trips", copy: "A day on the Red Sea is more than a trip.", media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Divers carrying gear along a jetty lined with dive tanks, boat trip preparation.", placeholderId: "exp-boat" } },
-      { id: "dolphin-boat-trips", title: "Dolphin Boat Trips", copy: "Go where the wild ones swim.", media: { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "Wild spinner dolphins swimming over a Red Sea reef.", placeholderId: "exp-dolphin" } },
+      { id: "diving", title: "private Dive guide", copy: "Explore the Red Sea, one dive at a time.", media: { type: "image", src: "assets/img/hero.jpg", poster: null, alt: "A diver in open blue water beside a Red Sea reef wall, bubbles rising.", placeholderId: "exp-diving" } },
+      { id: "guiding", title: "guiding Dives", copy: "You explore. I take care of the rest.", media: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "exp-guiding" } },
+      { id: "introduction", title: "Introduction Dives", copy: "Your first breath underwater starts here.", media: { type: "image", src: "assets/img/intro.jpg", alt: "A first-time diver taking their first breath underwater with an instructor.", placeholderId: "exp-intro" } },
+      { id: "courses", title: "Diving Courses", copy: "Learn to dive. Build confidence. Discover more.", media: { type: "image", src: "assets/img/course.jpg", alt: "A dive student practicing skills in shallow water with an instructor.", placeholderId: "exp-courses" } },
+      { id: "boat-trips", title: "Boat Trips", copy: "A day on the Red Sea is more than a trip.", media: { type: "image", src: "assets/img/hahaha.jpg", alt: "Divers carrying gear along a jetty lined with dive tanks, boat trip preparation.", placeholderId: "exp-boat" } },
+      { id: "dolphin-boat-trips", title: "Dolphin Trip", copy: "Go where the wild ones swim.", media: { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "Wild spinner dolphins swimming over a Red Sea reef.", placeholderId: "exp-dolphin" } },
     ],
   },
 
@@ -156,7 +150,7 @@ const CONTENT = {
         kicker: "Shark Dives",
         headline: "Meet the wild side of the Red Sea.",
         copy: "Descend into one of the Red Sea's iconic reefs and experience close encounters with its legendary sharks.",
-        media: { type: "video", src: null, poster: null, alt: "A diver in open blue water as a shark passes at a distance near Elphinstone Reef.", placeholderId: "special-elphinstone" },
+        media: { type: "image", src: "assets/img/shark.jpg", alt: "A diver in open blue water as a shark passes at a distance near Elphinstone Reef.", placeholderId: "special-elphinstone" },
       },
       {
         id: "salem-express",
@@ -164,7 +158,7 @@ const CONTENT = {
         kicker: "Wreck Diving",
         headline: "Some stories are better discovered below the surface.",
         copy: "Explore the Salem Express and experience one of the Red Sea's most unforgettable wreck dives.",
-        media: { type: "video", src: null, poster: null, alt: "The silhouette of a diver approaching the wreck of the Salem Express.", placeholderId: "special-salem" },
+        media: { type: "image", src: "assets/img/salem.jpg", alt: "The silhouette of a diver approaching the wreck of the Salem Express.", placeholderId: "special-salem" },
       },
       {
         id: "sataya",
@@ -173,14 +167,14 @@ const CONTENT = {
         headline: "Two days. One night. A different kind of connection.",
         copy: "Swim and snorkel alongside wild dolphins, spend a night at sea, and experience the Red Sea at its most alive.",
         facts: ["2 Days", "1 Night", "Snorkeling", "Wild Dolphins", "Boat Life"],
-        media: { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "A pod of wild spinner dolphins swimming over a Red Sea reef at Sataya.", placeholderId: "special-sataya" },
+        media: { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "A pod of wild spinner dolphins swimming over a Red Sea reef at Sataya.", placeholderId: "special-sataya" },
         sequence: [
-          { type: "image", src: "assets/img/boat-group.jpg", alt: "Guests and crew together on the boat's swim platform at Sataya.", placeholderId: "sataya-boat" },
-          { type: "image", src: null, alt: "Wild dolphins swimming alongside the boat.", placeholderId: "sataya-dolphins-boat" },
-          { type: "image", src: null, alt: "Guests snorkeling alongside wild dolphins.", placeholderId: "sataya-snorkel" },
-          { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "Underwater footage of a pod of wild dolphins swimming past a reef.", placeholderId: "sataya-underwater" },
+          { type: "image", src: "assets/img/bkbk.png", alt: "Guests and crew together on the boat's swim platform at Sataya.", placeholderId: "sataya-boat" },
+          { type: "image", src: "assets/img/koko.jpg", alt: "Wild dolphins swimming alongside the boat.", placeholderId: "sataya-dolphins-boat" },
+          { type: "image", src: "assets/img/popo.jpg", alt: "Guests snorkeling alongside wild dolphins.", placeholderId: "sataya-snorkel" },
+          { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "Underwater footage of a pod of wild dolphins swimming past a reef.", placeholderId: "sataya-underwater" },
           { type: "image", src: "assets/img/sunset.jpg", alt: "Sunset light over the Red Sea from the boat at Sataya.", placeholderId: "sataya-sunset" },
-          { type: "image", src: null, alt: "A calm evening aboard the boat.", placeholderId: "sataya-evening" },
+          { type: "image", src: "assets/img/123.jpg", alt: "A calm evening aboard the boat.", placeholderId: "sataya-evening" },
         ],
       },
     ],
@@ -195,8 +189,8 @@ const CONTENT = {
       { id: "g2", category: "Marine Life", size: "small", media: { type: "image", src: "assets/img/moray-eel.jpg", alt: "A close-up of a moray eel among coral.", placeholderId: "gallery-2" } },
       { id: "g3", category: "Dolphins", size: "medium", media: { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "A pod of wild dolphins swimming over a Red Sea reef.", placeholderId: "gallery-3" } },
       { id: "g4", category: "Boat Life", size: "small", media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Life aboard the dive boat between dives.", placeholderId: "gallery-4" } },
-      { id: "g5", category: "Sharks", size: "large", media: { type: "image", src: null, alt: "A shark gliding through open blue water.", placeholderId: "gallery-5" } },
-      { id: "g6", category: "Wrecks", size: "medium", media: { type: "image", src: null, alt: "Light filtering through the structure of a sunken wreck.", placeholderId: "gallery-6" } },
+      { id: "g5", category: "Sharks", size: "large", media: { type: "image", src: "assets/img/bew.jpg", alt: "A shark gliding through open blue water.", placeholderId: "gallery-5" } },
+      { id: "g6", category: "Wrecks", size: "medium", media: { type: "image", src: "assets/img/krkr.jpg", alt: "Light filtering through the structure of a sunken wreck.", placeholderId: "gallery-6" } },
       { id: "g7", category: "Guests", size: "small", media: { type: "image", src: "assets/img/mask-turtle.jpg", alt: "A diver's mask with a small good-luck charm clipped to the gear.", placeholderId: "gallery-7" } },
       { id: "g8", category: "Red Sea", size: "medium", media: { type: "image", src: "assets/img/nudibranch.jpg", alt: "A Spanish dancer nudibranch swimming through open blue water over a school of fish.", placeholderId: "gallery-8" } },
     ],
@@ -207,14 +201,14 @@ const CONTENT = {
     title: "People I've Taken Below the Surface",
     // Structured placeholders only — replace with real guest quotes & photos.
     items: [
-      { quote: "A completely different way to experience the Red Sea.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "guest-1" } },
-      { quote: "Placeholder for a real guest reflection.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: "assets/img/boat-group.jpg", alt: "Guests and crew together on the boat's swim platform.", placeholderId: "guest-2" } },
-      { quote: "Placeholder for a real guest reflection.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: null, alt: "Portrait of a guest.", placeholderId: "guest-3" } },
+      { quote: "A completely different way to experience the Red Sea.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: "assets/img/6666.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "guest-1" } },
+      { quote: "Placeholder for a real guest reflection.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: "assets/img/a7a7.jpg", alt: "Guests and crew together on the boat's swim platform.", placeholderId: "guest-2" } },
+      { quote: "Placeholder for a real guest reflection.", name: "Guest name", trip: "Trip / experience", photo: { type: "image", src: "assets/img/bedo.jpg", alt: "Portrait of a guest.", placeholderId: "guest-3" } },
     ],
   },
 
   connection: {
-    title: "Reconnect With Nature.",
+    title: "Reconnecting Humans with Nature✨.",
     lines: ["Slow down.", "Look closer.", "Go below the surface."],
   },
 
@@ -227,7 +221,7 @@ const CONTENT = {
   },
 
   footer: {
-    tagline: "Reconnecting Humans with Nature",
+    tagline: "Reconnecting Humans with Nature✨",
   },
 
   depthGauge: {
