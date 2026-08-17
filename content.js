@@ -1,243 +1,695 @@
-/**
- * ============================================================
- * OMAR SHERIF — CONTENT & MEDIA CONFIGURATION
- * ============================================================
- * This is the single source of truth for every word and every
- * piece of media on the site. Nothing below the UI layer should
- * ever be hard-coded inside a component.
- *
- * TO REPLACE PLACEHOLDER MEDIA:
- * Every media entry has the shape:
- *   { type: 'video'|'image', src: null, poster: null, alt: '...' }
- * Drop a real file path into `src` (and `poster` for video) and
- * the placeholder gradient/particle treatment is automatically
- * replaced by the real asset — see media.js for how this is
- * consumed. Nothing else needs to change.
- * ============================================================
- */
+/* ============================================================
+   OMAR SHERIF — DESIGN TOKENS
+   ============================================================
+   Palette
+     --abyss        #060c12  near-black, base background
+     --depth        #0b1b26  dark navy, section alternation
+     --current       #14374a  ocean blue, mid-tone / borders
+     --foam          #eef2ef  off-white, primary type on dark
+     --foam-dim      #b9c4c3  muted off-white, secondary copy
+     --glow          #7fd9cf  desaturated cyan, sparing accent
+     --ember         #d8b48c  warm sand, used only for guest warmth
+   Type
+     display: 'Bricolage Grotesque' — editorial, characterful sans
+     body:    'Inter' — clean, highly legible utility face
+   ============================================================ */
 
-const CONTENT = {
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@300;400;500;600&display=swap');
 
-  brand: {
-    name: "Let's Go Diving!",
-    statement: "Reconnecting Humans with Nature✨",
-    location: "Red Sea, Egypt",
-  },
+:root {
+  --abyss: #060c12;
+  --depth: #0b1b26;
+  --current: #14374a;
+  --current-soft: #1b4256;
+  --foam: #eef2ef;
+  --foam-dim: #a9b7b8;
+  --glow: #7fd9cf;
+  --glow-dim: #4c8f8a;
+  --ember: #d8b48c;
+  --line: rgba(238, 242, 239, 0.12);
+  --line-soft: rgba(238, 242, 239, 0.06);
 
-  contact: {
-    instagramLabel: "Instagram",
-    instagramUrl: "https://www.instagram.com/omar_ssherif/",
-    emailLabel: "Email",
-    emailUrl: "mailto:omar.sheriff182@gmail.com",
-  },
+  --font-display: 'Bricolage Grotesque', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
-  nav: {
-    links: [
-      { label: "Day in the Life", href: "#experience" },
-      { label: "Adventures", href: "#experiences" },
-      { label: "Spots", href: "#destinations" },
-      { label: "Media", href: "#gallery" },
-      { label: "Contact", href: "#contact" },
-    ],
-  },
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 8rem;
+  --space-7: 12rem;
 
-  hero: {
-    eyebrow: "Scuba Diving Instructor",
-    title: "OMAR SHERIF",
-    subtitle: "Reconnecting Humans with Nature✨",
-    ctaPrimary: { label: "Explore", href: "#experience" },
-    ctaSecondary: { label: "Plan Your Dive", href: "#contact" },
-    depthLabel: "SURFACE",
-    media: {
-      type: "image",
-      src: "assets/img/hero.jpg",
-      poster: null,
-      alt: "Omar Sherif diving along a Red Sea reef wall, bubbles rising through sunlit blue water as a buddy diver follows behind.",
-      placeholderId: "hero",
-    },
-  },
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-slow: 1.4s;
+  --dur-med: 0.9s;
+  --dur-fast: 0.45s;
 
-  intro: {
-    eyebrow: "Below the Surface",
-    title: "Below the Surface",
-    lines: [
-      "I'm Omar.",
-      "PADI Instructor and underwater storyteller.",
-      "I spend most of my time exploring the world beneath the surface — and helping others experience it for themselves.",
-    ],
-    portrait: {
-      type: "image",
-      src: "assets/img/portrait.jpg",
-      alt: "Portrait of Omar Sherif in dive gear on a jetty overlooking the Red Sea.",
-      placeholderId: "portrait",
-    },
-    underwater: {
-      type: "image",
-      src: "assets/img/turtle.jpg",
-      poster: null,
-      alt: "A green sea turtle gliding through clear Red Sea water, sunlight breaking through the surface above.",
-      placeholderId: "intro-underwater",
-    },
-  },
+  --gauge-width: 64px;
+  --container: min(1400px, 92vw);
+}
 
-  journey: {
-    eyebrow: "Your Day Below the Surface",
-    title: "Your Day Below the Surface",
-    stages: [
-      {
-        id: "arrive",
-        title: "Arrive",
-        copy: "Boat. Gear. Sea.",
-        media: { type: "image", src: "assets/img/pier-gear.jpeg", alt: "Two divers carrying gear along a jetty lined with dive tanks.", placeholderId: "stage-arrive" },
-      },
-      {
-        id: "descend",
-        title: "Descend",
-        copy: "Your first moments underwater.",
-        media: { type: "image", src: "assets/img/diver-descend.jpg", poster: null, alt: "A diver descending along a Red Sea reef wall, reaching toward the camera.", placeholderId: "stage-descend" },
-      },
-      {
-        id: "explore",
-        title: "Explore",
-        copy: "Reefs, marine life and the blue.",
-        media: { type: "image", src: "assets/img/reef-fish.jpg", poster: null, alt: "A school of orange anthias fish over a coral reef in clear Red Sea water.", placeholderId: "stage-explore" },
-      },
-      {
-        id: "connect",
-        title: "Connect",
-        copy: "Slow down. Look closer.",
-        media: { type: "image", src: "assets/img/clownfish.jpg", alt: "Two clownfish sheltering in the tentacles of a sea anemone.", placeholderId: "stage-connect" },
-      },
-      {
-        id: "surface",
-        title: "Surface",
-        copy: "Come back with a story.",
-        media: { type: "image", src: "assets/img/beach-entry.jpeg", alt: "A diver walking out of the water onto a Red Sea beach beside a boat and palm trees.", placeholderId: "stage-surface" },
-      },
-    ],
-  },
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
-  experiences: {
-    eyebrow: "Adventures",
-    title: "What We Can Do",
-    items: [
-      { id: "diving", title: "private Dive guide", copy: "Explore the Red Sea, one dive at a time.", media: { type: "image", src: "assets/img/hero.jpg", poster: null, alt: "A diver in open blue water beside a Red Sea reef wall, bubbles rising.", placeholderId: "exp-diving" } },
-      { id: "guiding", title: "guiding Dives", copy: "You explore. I take care of the rest.", media: { type: "image", src: "assets/img/divers-buddy.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "exp-guiding" } },
-      { id: "introduction", title: "Introduction Dives", copy: "Your first breath underwater starts here.", media: { type: "image", src: "assets/img/intro.jpg", alt: "A first-time diver taking their first breath underwater with an instructor.", placeholderId: "exp-intro" } },
-      { id: "courses", title: "Diving Courses", copy: "Learn to dive. Build confidence. Discover more.", media: { type: "image", src: "assets/img/course.jpg", alt: "A dive student practicing skills in shallow water with an instructor.", placeholderId: "exp-courses" } },
-      { id: "boat-trips", title: "Boat Trips", copy: "A day on the Red Sea is more than a trip.", media: { type: "image", src: "assets/img/hahaha.jpg", alt: "Divers carrying gear along a jetty lined with dive tanks, boat trip preparation.", placeholderId: "exp-boat" } },
-      { id: "dolphin-boat-trips", title: "Dolphin Trip", copy: "Go where the wild ones swim.", media: { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "Wild spinner dolphins swimming over a Red Sea reef.", placeholderId: "exp-dolphin" } },
-    ],
-  },
+body, h1, h2, h3, p, figure { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 
-  destinations: {
-    eyebrow: "The Red Sea",
-    title: "The Red Sea",
-    items: [
-      { id: "el-quseir", name: "El Quseir", copy: "Quiet waters. Rich reefs. The real Red Sea.", media: { type: "image", src: "assets/img/moray-eel.jpg", alt: "A moray eel tucked into a coral outcrop, a quiet corner of the reef.", placeholderId: "dest-elquseir" } },
-      { id: "port-ghalib", name: "Port Ghalib", copy: "Your gateway to some of the Red Sea's most unforgettable dives.", media: { type: "image", src: "assets/img/coral-wall-pink.jpg", alt: "A vivid reef wall of pink and white soft coral, gateway to the open blue.", placeholderId: "dest-portghalib" } },
-      { id: "marsa-alam", name: "Marsa Alam", copy: "Wild nature, clear water and unforgettable encounters.", media: { type: "image", src: "assets/img/coral-wall-orange.jpg", alt: "A reef wall of orange soft coral in clear Marsa Alam water.", placeholderId: "dest-marsaalam" } },
-    ],
-  },
+html, body {
+  background: var(--abyss);
+  color: var(--foam);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-  special: {
-    eyebrow: "Special Experiences",
-    title: "Special Experiences",
-    items: [
-      {
-        id: "elphinstone",
-        place: "Elphinstone Reef",
-        kicker: "Shark Dives",
-        headline: "Meet the wild side of the Red Sea.",
-        copy: "Descend into one of the Red Sea's iconic reefs and experience close encounters with its legendary sharks.",
-        media: { type: "image", src: "assets/img/shark.jpg", alt: "A diver in open blue water as a shark passes at a distance near Elphinstone Reef.", placeholderId: "special-elphinstone" },
-      },
-      {
-        id: "salem-express",
-        place: "Salem Express",
-        kicker: "Wreck Diving",
-        headline: "Some stories are better discovered below the surface.",
-        copy: "Explore the Salem Express and experience one of the Red Sea's most unforgettable wreck dives.",
-        media: { type: "image", src: "assets/img/salem.jpg", alt: "The silhouette of a diver approaching the wreck of the Salem Express.", placeholderId: "special-salem" },
-      },
-      {
-        id: "sataya",
-        place: "Sataya Dolphin House",
-        kicker: "Overnight Dolphin Experience",
-        headline: "Two days. One night. A different kind of connection.",
-        copy: "Swim and snorkel alongside wild dolphins, spend a night at sea, and experience the Red Sea at its most alive.",
-        facts: ["2 Days", "1 Night", "Snorkeling", "Wild Dolphins", "Boat Life"],
-        media: { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "A pod of wild spinner dolphins swimming over a Red Sea reef at Sataya.", placeholderId: "special-sataya" },
-        sequence: [
-          { type: "image", src: "assets/img/bkbk.png", alt: "Guests and crew together on the boat's swim platform at Sataya.", placeholderId: "sataya-boat" },
-          { type: "image", src: "assets/img/koko.jpg", alt: "Wild dolphins swimming alongside the boat.", placeholderId: "sataya-dolphins-boat" },
-          { type: "image", src: "assets/img/popo.jpg", alt: "Guests snorkeling alongside wild dolphins.", placeholderId: "sataya-snorkel" },
-          { type: "image", src: "assets/img/dolphins-sataya.jpeg", focus: "center 24%", alt: "Underwater footage of a pod of wild dolphins swimming past a reef.", placeholderId: "sataya-underwater" },
-          { type: "image", src: "assets/img/sunset.jpg", alt: "Sunset light over the Red Sea from the boat at Sataya.", placeholderId: "sataya-sunset" },
-          { type: "image", src: "assets/img/123.jpg", alt: "A calm evening aboard the boat.", placeholderId: "sataya-evening" },
-        ],
-      },
-    ],
-  },
+body { font-weight: 300; line-height: 1.5; font-size: 1rem; }
 
-  gallery: {
-    eyebrow: "The Ocean Through My Eyes",
-    title: "The Ocean Through My Eyes",
-    categories: ["Diving", "Marine Life", "Dolphins", "Sharks", "Wrecks", "Guests", "Boat Life", "Red Sea"],
-    items: [
-      { id: "g1", category: "Diving", size: "large", media: { type: "image", src: "assets/img/diver-descend.jpg", alt: "A diver descending along a Red Sea reef wall, reaching toward the camera.", placeholderId: "gallery-1" } },
-      { id: "g2", category: "Marine Life", size: "small", media: { type: "image", src: "assets/img/moray-eel.jpg", alt: "A close-up of a moray eel among coral.", placeholderId: "gallery-2" } },
-      { id: "g3", category: "Dolphins", size: "medium", media: { type: "image", src: "assets/img/dolphins-sataya.jpg", focus: "center 24%", alt: "A pod of wild dolphins swimming over a Red Sea reef.", placeholderId: "gallery-3" } },
-      { id: "g4", category: "Boat Life", size: "small", media: { type: "image", src: "assets/img/pier-gear.jpg", alt: "Life aboard the dive boat between dives.", placeholderId: "gallery-4" } },
-      { id: "g5", category: "Sharks", size: "large", media: { type: "image", src: "assets/img/bew.jpg", alt: "A shark gliding through open blue water.", placeholderId: "gallery-5" } },
-      { id: "g6", category: "Wrecks", size: "medium", media: { type: "image", src: "assets/img/krkr.jpg", alt: "Light filtering through the structure of a sunken wreck.", placeholderId: "gallery-6" } },
-      { id: "g7", category: "Guests", size: "small", media: { type: "image", src: "assets/img/mask-turtle.jpg", alt: "A diver's mask with a small good-luck charm clipped to the gear.", placeholderId: "gallery-7" } },
-      { id: "g8", category: "Red Sea", size: "medium", media: { type: "image", src: "assets/img/nudibranch.jpg", alt: "A Spanish dancer nudibranch swimming through open blue water over a school of fish.", placeholderId: "gallery-8" } },
-    ],
-  },
+::selection { background: var(--glow-dim); color: var(--abyss); }
 
-  testimonials: {
-    eyebrow: "People I've Taken Below the Surface",
-    title: "People I've Taken Below the Surface",
-    // Structured placeholders only — replace with real guest quotes & photos.
-    items: [
-      { quote: "A completely different way to experience the Red Sea.", name: , trip: , photo: { type: "image", src: "assets/img/6666.jpg", alt: "Two divers signaling OK to each other underwater.", placeholderId: "guest-1" } },
-      { quote: "Placeholder for a real guest reflection.", name: , trip: , photo: { type: "image", src: "assets/img/a7a7.jpg", alt: "Guests and crew together on the boat's swim platform.", placeholderId: "guest-2" } },
-      { quote: "Placeholder for a real guest reflection.", name: , trip: , photo: { type: "image", src: "assets/img/bedo.jpg", alt: "Portrait of a guest.", placeholderId: "guest-3" } },
-    ],
-  },
+/* ---------- Typography ---------- */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--glow);
+  font-weight: 500;
+}
 
-  connection: {
-    title: "Reconnecting Humans with Nature✨.",
-    lines: ["Slow down.", "Look closer.", "Go below the surface."],
-  },
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
 
-  finalCta: {
-    title: "Let's Go Diving.",
-    eyebrow: "Coming to the Red Sea?",
-    copy: "Let's plan your next experience below the surface.",
-    ctaPrimary: { label: "Get in Touch", href: "#contact" },
-    ctaSecondary: { label: "Instagram", href: "#" },
-  },
+.display-1 {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.98;
+  font-weight: 600;
+}
+.display-2 {
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  line-height: 1.03;
+  font-weight: 500;
+}
+.display-3 {
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
 
-  footer: {
-    tagline: "Reconnecting Humans with Nature✨",
-  },
+.body-lg { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 300; color: var(--foam-dim); line-height: 1.6; }
+.body-md { font-size: 1rem; font-weight: 300; color: var(--foam-dim); }
+.label { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foam-dim); }
 
-  depthGauge: {
-    // Sections mapped to a depth reading for the signature gauge.
-    // Purely a storytelling device — not literal dive depths.
-    stops: [
-      { id: "hero", label: "SURFACE" },
-      { id: "intro", label: "5M" },
-      { id: "experience", label: "10M" },
-      { id: "experiences", label: "15M" },
-      { id: "destinations", label: "20M" },
-      { id: "special", label: "DEEPER" },
-      { id: "gallery", label: "DEEPER" },
-      { id: "testimonials", label: "10M" },
-      { id: "connection", label: "5M" },
-      { id: "contact", label: "SURFACE" },
-    ],
-  },
-};
+/* ---------- Layout helpers ---------- */
+.container { width: var(--container); margin-inline: auto; }
+.section { position: relative; padding-block: var(--space-6); }
+.section--tight { padding-block: var(--space-5); }
+.section--dark { background: var(--abyss); }
+.section--deep { background: var(--depth); }
+
+.section-head { max-width: 46rem; margin-bottom: var(--space-5); }
+.section-head .eyebrow { display: block; margin-bottom: var(--space-2); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s var(--ease-out), transform 1.1s var(--ease-out);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.18s; }
+.reveal-delay-3 { transition-delay: 0.28s; }
+
+/* ============================================================
+   MEDIA / SCENE PLACEHOLDER SYSTEM
+   ============================================================ */
+.media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--abyss);
+}
+.media img, .media video {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+
+.media--placeholder {
+  --scene-a: #0a1e2b;
+  --scene-b: #0d2a36;
+  --scene-c: #123b46;
+  background:
+    radial-gradient(120% 90% at 30% 0%, var(--scene-c), transparent 60%),
+    radial-gradient(140% 100% at 80% 100%, var(--scene-b), transparent 65%),
+    linear-gradient(180deg, var(--scene-a), var(--abyss));
+}
+
+.media__rays {
+  position: absolute; inset: -20% -10%;
+  background: repeating-linear-gradient(
+    100deg,
+    transparent 0 60px,
+    rgba(238,242,239,0.05) 60px 62px,
+    transparent 62px 140px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  animation: rayDrift 22s linear infinite;
+}
+.media__drift {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(2px 2px at 12% 30%, rgba(238,242,239,0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 68% 62%, rgba(238,242,239,0.25), transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(127,217,207,0.3), transparent 60%),
+    radial-gradient(1px 1px at 85% 20%, rgba(238,242,239,0.3), transparent 60%),
+    radial-gradient(1.5px 1.5px at 25% 55%, rgba(238,242,239,0.2), transparent 60%);
+  animation: particleFloat 14s ease-in-out infinite;
+  opacity: 0.7;
+}
+.media__grain {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(6,12,18,0) 0%, rgba(6,12,18,0.55) 100%);
+}
+
+@keyframes rayDrift {
+  0% { transform: translate3d(0,0,0) rotate(0deg); }
+  100% { transform: translate3d(-4%, 2%, 0) rotate(0.6deg); }
+}
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* Scene tone variants */
+.scene-open-blue { --scene-a:#081824; --scene-b:#0d2e3a; --scene-c:#134450; }
+.scene-topside   { --scene-a:#0a1c22; --scene-b:#16323a; --scene-c:#274a4a; }
+.scene-descend   { --scene-a:#050f18; --scene-b:#0a2230; --scene-c:#0f3345; }
+.scene-reef      { --scene-a:#071c1e; --scene-b:#0e332f; --scene-c:#1c4a3c; }
+.scene-shallow   { --scene-a:#0a1f26; --scene-b:#153c42; --scene-c:#2a5a54; }
+.scene-dolphin   { --scene-a:#081a24; --scene-b:#12333f; --scene-c:#1e4e56; }
+.scene-sun       { --scene-a:#12141a; --scene-b:#3a3020; --scene-c:#6b4f2c; }
+.scene-shark     { --scene-a:#03070a; --scene-b:#0a1620; --scene-c:#12222c; }
+.scene-wreck     { --scene-a:#050708; --scene-b:#0b151d; --scene-c:#101f28; }
+
+/* ============================================================
+   CURSOR
+   ============================================================ */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  width: 84px; height: 84px;
+  margin-left: -42px; margin-top: -42px;
+  border-radius: 50%;
+  border: 1px solid rgba(238,242,239,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--foam);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s var(--ease-out), transform 0.35s var(--ease-out), background 0.3s;
+  backdrop-filter: blur(2px);
+  mix-blend-mode: difference;
+}
+.cursor.is-active { opacity: 1; transform: scale(1); }
+.cursor.is-cta { background: var(--foam); color: var(--abyss); }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  transition: background 0.5s var(--ease-out), padding 0.4s var(--ease-out), backdrop-filter .4s;
+}
+.nav.is-scrolled {
+  background: rgba(6,12,18,0.72);
+  backdrop-filter: blur(14px);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--line-soft);
+}
+.nav__mark { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.08em; font-weight: 600; }
+.nav__links { display: flex; gap: var(--space-4); }
+.nav__links a { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--foam-dim); transition: color 0.3s; }
+.nav__links a:hover, .nav__links a:focus-visible { color: var(--foam); }
+.nav__toggle { display: none; }
+
+@media (max-width: 860px) {
+  .nav { padding: var(--space-3) var(--space-3); }
+  .nav__links { display: none; }
+}
+
+/* ============================================================
+   DEPTH GAUGE — signature element
+   ============================================================ */
+.gauge {
+  position: fixed;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  width: var(--gauge-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.gauge__track {
+  position: relative;
+  width: 1px;
+  height: 220px;
+  background: var(--line);
+}
+.gauge__fill {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, var(--glow), transparent);
+  height: 0%;
+  transition: height 0.25s linear;
+}
+.gauge__marker {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--glow);
+  box-shadow: 0 0 10px 2px rgba(127,217,207,0.6);
+  transition: top 0.35s var(--ease-out);
+}
+.gauge__label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--foam-dim);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.gauge__reading {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--glow);
+  writing-mode: vertical-rl;
+}
+
+@media (max-width: 960px) {
+  .gauge { display: none; }
+}
+
+/* ============================================================
+   SOUND TOGGLE
+   ============================================================ */
+.sound-toggle {
+  position: fixed;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 90;
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(6,12,18,0.5);
+  backdrop-filter: blur(10px);
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--foam-dim);
+  transition: border-color 0.3s, color 0.3s;
+}
+.sound-toggle:hover, .sound-toggle:focus-visible { color: var(--foam); border-color: var(--glow-dim); }
+.sound-toggle__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--foam-dim);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.sound-toggle.is-on .sound-toggle__dot {
+  background: var(--glow);
+  box-shadow: 0 0 8px 2px rgba(127,217,207,0.7);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.hero__media { position: absolute; inset: 0; z-index: 0; }
+.hero__media .media { animation: heroBreathe 26s ease-in-out infinite; }
+@keyframes heroBreathe {
+  0%, 100% { transform: scale(1.02) translateY(0); }
+  50% { transform: scale(1.08) translateY(-1.5%); }
+}
+.hero__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(6,12,18,0.35) 0%, rgba(6,12,18,0.15) 35%, rgba(6,12,18,0.75) 100%);
+}
+.hero__content {
+  position: relative; z-index: 2;
+  padding: 0 var(--space-4) var(--space-5);
+}
+.hero__eyebrow { display: block; margin-bottom: var(--space-3); opacity: 0; animation: heroIn 1.2s var(--ease-out) 0.3s forwards; }
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 12vw, 9.5rem);
+  line-height: 0.92;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  opacity: 0; transform: translateY(40px);
+  animation: heroIn 1.3s var(--ease-out) 0.45s forwards;
+}
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  color: var(--foam-dim);
+  margin-top: var(--space-2);
+  opacity: 0; transform: translateY(20px);
+  animation: heroIn 1.2s var(--ease-out) 0.7s forwards;
+}
+@keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+.hero__ctas {
+  display: flex; flex-wrap: wrap; gap: var(--space-3);
+  margin-top: var(--space-4);
+  opacity: 0;
+  animation: heroIn 1.2s var(--ease-out) 0.95s forwards;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 1.9rem;
+  font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: border-color 0.4s var(--ease-out), background 0.4s var(--ease-out), color 0.4s var(--ease-out);
+}
+.btn--primary { background: var(--foam); color: var(--abyss); border-color: var(--foam); }
+.btn--primary:hover, .btn--primary:focus-visible { background: var(--glow); border-color: var(--glow); }
+.btn--ghost { color: var(--foam); }
+.btn--ghost:hover, .btn--ghost:focus-visible { border-color: var(--glow); color: var(--glow); }
+
+.hero__depth {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  opacity: 0;
+  animation: heroIn 1s var(--ease-out) 1.3s forwards;
+}
+.hero__depth-label { font-size: 0.68rem; letter-spacing: 0.24em; color: var(--foam-dim); }
+.hero__depth-indicator {
+  width: 1px; height: 34px; background: var(--line);
+  position: relative; overflow: hidden;
+}
+.hero__depth-indicator::after {
+  content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 50%;
+  background: linear-gradient(180deg, transparent, var(--glow));
+  animation: depthFall 2.4s var(--ease-in-out) infinite;
+}
+@keyframes depthFall {
+  0% { top: -50%; }
+  100% { top: 100%; }
+}
+
+/* ============================================================
+   INTRO — Who I Am
+   ============================================================ */
+.intro__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-4);
+  align-items: stretch;
+}
+.intro__copy { display: flex; flex-direction: column; justify-content: center; gap: var(--space-3); padding-right: var(--space-4); }
+.intro__lead { font-family: var(--font-display); font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 400; color: var(--foam); }
+.intro__media-stack { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.intro__portrait { aspect-ratio: 3/4; border-radius: 2px; overflow: hidden; }
+.intro__underwater { aspect-ratio: 3/4; border-radius: 2px; overflow: hidden; margin-top: var(--space-5); }
+
+@media (max-width: 900px) {
+  .intro__grid { grid-template-columns: 1fr; }
+  .intro__copy { padding-right: 0; }
+  .intro__underwater { margin-top: 0; }
+}
+
+/* ============================================================
+   JOURNEY — Your Day Below the Surface
+   ============================================================ */
+.journey__list { display: flex; flex-direction: column; }
+.journey__stage {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--line-soft);
+}
+.journey__stage:last-child { border-bottom: 1px solid var(--line-soft); }
+.journey__stage-index { font-family: var(--font-body); font-size: 0.75rem; color: var(--glow-dim); letter-spacing: 0.1em; margin-bottom: var(--space-1); display: block; }
+.journey__stage-title { font-size: clamp(2rem, 4vw, 3.2rem); }
+.journey__stage-copy { color: var(--foam-dim); margin-top: var(--space-1); font-size: 1.05rem; }
+.journey__stage-media { aspect-ratio: 16/10; border-radius: 2px; overflow: hidden; }
+
+@media (max-width: 860px) {
+  .journey__stage { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   EXPERIENCES — What We Can Do
+   ============================================================ */
+.experiences__list { border-top: 1px solid var(--line-soft); }
+.exp-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+  cursor: pointer;
+}
+.exp-row__index { font-size: 0.8rem; color: var(--foam-dim); }
+.exp-row__title { font-size: clamp(1.6rem, 3.4vw, 2.6rem); transition: transform 0.5s var(--ease-out), color 0.4s; }
+.exp-row__copy { color: var(--foam-dim); font-size: 0.95rem; margin-top: 0.35rem; max-width: 30rem; }
+.exp-row__arrow { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--glow); opacity: 0; transform: translateX(-8px); transition: opacity 0.4s, transform 0.4s; }
+.exp-row__media {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 34vw; max-width: 460px;
+  opacity: 0; transform: scale(1.06) translateX(2%);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 30%);
+  mask-image: linear-gradient(90deg, transparent, black 30%);
+}
+.exp-row:hover, .exp-row:focus-within {
+  border-color: var(--line);
+}
+.exp-row:hover .exp-row__title, .exp-row:focus-within .exp-row__title { transform: translateX(0.4rem); color: var(--glow); }
+.exp-row:hover .exp-row__arrow, .exp-row:focus-within .exp-row__arrow { opacity: 1; transform: translateX(0); }
+.exp-row:hover .exp-row__media, .exp-row:focus-within .exp-row__media { opacity: 1; transform: scale(1) translateX(0); }
+
+@media (max-width: 760px) {
+  .exp-row__media { display: none; }
+  .exp-row { grid-template-columns: 2rem 1fr; }
+  .exp-row__arrow { display: none; }
+}
+
+/* ============================================================
+   DESTINATIONS
+   ============================================================ */
+.destinations__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.dest-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.dest-card .media { transition: transform 1.1s var(--ease-out); }
+.dest-card:hover .media, .dest-card:focus-within .media { transform: scale(1.06); }
+.dest-card__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,12,18,0.85) 0%, rgba(6,12,18,0.1) 55%); }
+.dest-card__content { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--space-3); }
+.dest-card__name { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.dest-card__copy { color: var(--foam-dim); font-size: 0.92rem; margin-top: 0.4rem; max-width: 22rem; }
+
+@media (max-width: 860px) {
+  .destinations__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SPECIAL EXPERIENCES
+   ============================================================ */
+.special-item {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+.special-item__media { position: absolute; inset: 0; }
+.special-item__media .media { animation: specialDrift 30s ease-in-out infinite; }
+@keyframes specialDrift {
+  0%, 100% { transform: scale(1.04); }
+  50% { transform: scale(1.1) translateY(-1%); }
+}
+.special-item__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(3,5,7,0.94) 0%, rgba(3,5,7,0.4) 45%, rgba(3,5,7,0.62) 100%); }
+.special-item__content { position: relative; z-index: 1; padding: var(--space-6) var(--space-4); max-width: 44rem; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+.special-item__place { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--glow); }
+.special-item__kicker { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--foam-dim); margin-top: 0.35rem; }
+.special-item__headline { font-size: clamp(1.9rem, 4.2vw, 3.4rem); margin-top: var(--space-2); }
+.special-item__copy { margin-top: var(--space-2); font-size: 1.05rem; }
+
+.sataya__facts { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: var(--space-3); }
+.sataya__fact { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--foam-dim); padding: 0.5rem 0.9rem; border: 1px solid var(--line); border-radius: 999px; }
+
+.sataya__sequence {
+  display: flex; gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.sataya__sequence::-webkit-scrollbar { display: none; }
+.sataya__frame {
+  flex: 0 0 auto;
+  width: min(78vw, 420px);
+  aspect-ratio: 4/5;
+  border-radius: 2px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* ============================================================
+   GALLERY — The Ocean Through My Eyes
+   ============================================================ */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 14vw;
+  gap: var(--space-2);
+}
+.gallery__item { position: relative; overflow: hidden; border-radius: 2px; }
+.gallery__item .media { transition: transform 0.8s var(--ease-out); }
+.gallery__item:hover .media, .gallery__item:focus-within .media { transform: scale(1.05); }
+.gallery__item--large { grid-column: span 3; grid-row: span 2; }
+.gallery__item--medium { grid-column: span 2; grid-row: span 2; }
+.gallery__item--small { grid-column: span 2; grid-row: span 1; }
+.gallery__tag {
+  position: absolute; left: var(--space-2); bottom: var(--space-2);
+  font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--foam-dim);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.gallery__item:hover .gallery__tag, .gallery__item:focus-within .gallery__tag { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 44vw; }
+  .gallery__item--large, .gallery__item--medium, .gallery__item--small { grid-column: span 1; grid-row: span 1; }
+}
+
+/* ============================================================
+   TESTIMONIALS — Guest Moments
+   ============================================================ */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.testimonial-card { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+.testimonial-card__photo { width: 100%; aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; }
+.testimonial-card__emoji { font-size: 1.6rem; line-height: 1; }
+
+@media (max-width: 860px) {
+  .testimonials__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   CONNECTION — full-bleed emotional break
+   ============================================================ */
+.connection {
+  position: relative;
+  min-height: 80vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 20%, #0d2530, var(--abyss) 70%);
+}
+.connection__particles { position: absolute; inset: 0; opacity: 0.5; }
+.connection__content { position: relative; z-index: 1; padding: var(--space-4); }
+.connection__title { font-size: clamp(2.2rem, 6vw, 4.4rem); }
+.connection__lines { margin-top: var(--space-4); display: flex; flex-direction: column; gap: 0.4rem; }
+.connection__lines span { font-family: var(--font-display); font-size: clamp(1.1rem, 2.4vw, 1.6rem); color: var(--foam-dim); }
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta {
+  text-align: center;
+  padding-block: var(--space-7) var(--space-6);
+}
+.final-cta__eyebrow { display: block; }
+.final-cta__title { font-size: clamp(2.6rem, 9vw, 6.5rem); margin-top: var(--space-2); }
+.final-cta__copy { max-width: 30rem; margin: var(--space-3) auto 0; }
+.final-cta__ctas { display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--line-soft);
+  padding: var(--space-4);
+  display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.footer__mark { font-family: var(--font-display); font-size: 1.1rem; }
+.footer__tagline { color: var(--foam-dim); font-size: 0.85rem; margin-top: 0.3rem; }
+.footer__location { color: var(--foam-dim); font-size: 0.78rem; margin-top: 0.6rem; }
+.footer__links { display: flex; gap: var(--space-3); }
+.footer__links a { font-size: 0.78rem; color: var(--foam-dim); border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+.footer__links a:hover, .footer__links a:focus-visible { color: var(--foam); border-color: var(--glow); }
+.footer__copyright { width: 100%; margin-top: var(--space-3); font-size: 0.68rem; color: rgba(169,183,184,0.55); }
+
+/* ============================================================
+   FOCUS STATES
+   ============================================================ */
+a:focus-visible, button:focus-visible {
+  outline: 1px solid var(--glow);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   RESPONSIVE — global tightening
+   ============================================================ */
+@media (max-width: 640px) {
+  :root { --space-6: 5rem; --space-7: 7rem; }
+  .section { padding-block: var(--space-5); }
+  .hero__content { padding: 0 var(--space-3) var(--space-4); }
+  .final-cta__ctas { flex-direction: column; align-items: stretch; }
+}
