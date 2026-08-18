@@ -92,7 +92,7 @@
       mountMedia(mediaWrap, item.media);
 
       const index = el("span", "exp-row__index", `0${i + 1}`);
-      const textWrap = el("div");
+      const textWrap = el("div", "exp-row__text");
       const title = el("h3", "exp-row__title", item.title);
       const copy = el("p", "exp-row__copy", item.copy);
       textWrap.append(title, copy);
@@ -182,8 +182,26 @@
       const item = el("div", `gallery__item gallery__item--${g.size} reveal`);
       item.tabIndex = 0;
       item.dataset.cursor = "VIEW";
-      mountMedia(item, g.media);
-      item.appendChild(el("span", "gallery__tag", g.category));
+
+      const flip = el("div", "gallery__flip");
+
+      const front = el("div", "gallery__flip-face gallery__flip-front");
+      mountMedia(front, g.media);
+      front.appendChild(el("span", "gallery__tag", g.category));
+
+      const back = el("div", "gallery__flip-face gallery__flip-back");
+      back.appendChild(el("p", "gallery__desc", g.description || g.category));
+
+      flip.append(front, back);
+      item.appendChild(flip);
+
+      // Touch devices have no hover — a tap flips the card instead.
+      item.addEventListener("click", () => {
+        if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+          item.classList.toggle("is-flipped");
+        }
+      });
+
       grid.appendChild(item);
     });
   }
@@ -262,6 +280,39 @@
         nav.classList.toggle("is-scrolled", window.scrollY > 40);
         ticking = false;
       });
+    });
+  }
+
+  /* ============================================================
+     INTERACTION: MOBILE NAV MENU
+     ============================================================ */
+  function initMobileNav() {
+    const toggle = $("navToggle");
+    const links = $("navLinks");
+    if (!toggle || !links) return;
+
+    function closeMenu() {
+      links.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      links.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", () => {
+      const isOpen = links.classList.contains("is-open");
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    // Closing on link tap lets the anchor jump happen underneath cleanly.
+    links.addEventListener("click", (e) => {
+      if (e.target.closest("a")) closeMenu();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
     });
   }
 
@@ -381,29 +432,6 @@
   /* ============================================================
      INTERACTION: SOUND TOGGLE (ambience is optional & user-initiated)
      ============================================================ */
-  function initSound() {
-    const btn = $("soundToggle");
-    const dot = btn.querySelector(".sound-toggle__dot");
-    const label = $("soundLabel");
-    const audio = $("ambientAudio");
-    // TODO: point this at a real, soft underwater-ambience + distant dolphin
-    // call audio file once supplied. Left unset intentionally — the toggle
-    // never autoplays and stays a no-op until a real source is added.
-    let on = false;
-    btn.addEventListener("click", () => {
-      on = !on;
-      btn.classList.toggle("is-on", on);
-      btn.setAttribute("aria-pressed", String(on));
-      label.textContent = on ? "Sound On" : "Sound Off";
-      if (on && audio.src) {
-        audio.volume = 0.35;
-        audio.play().catch(() => {});
-      } else {
-        audio.pause();
-      }
-    });
-  }
-
   /* ============================================================
      INTERACTION: CONNECTION SECTION PARTICLES
      ============================================================ */
@@ -473,10 +501,10 @@
     renderFooter();
 
     initNavScroll();
+    initMobileNav();
     initCursor();
     initReveals();
     initDepthGauge();
-    initSound();
     initConnectionParticles();
     initVideoAutoplay();
   }

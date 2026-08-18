@@ -247,11 +247,55 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 .nav__links { display: flex; gap: var(--space-4); }
 .nav__links a { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--foam-dim); transition: color 0.3s; }
 .nav__links a:hover, .nav__links a:focus-visible { color: var(--foam); }
-.nav__toggle { display: none; }
+
+/* Hamburger toggle — hidden on desktop, shown only below the mobile breakpoint */
+.nav__toggle {
+  display: none;
+  position: relative;
+  z-index: 101;
+  width: 34px; height: 34px;
+  align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+  background: none;
+}
+.nav__toggle span {
+  display: block;
+  width: 20px; height: 1.5px;
+  background: var(--foam);
+  border-radius: 2px;
+  transition: transform 0.35s var(--ease-out), opacity 0.25s var(--ease-out);
+}
+.nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 @media (max-width: 860px) {
   .nav { padding: var(--space-3) var(--space-3); }
-  .nav__links { display: none; }
+  .nav__toggle { display: flex; }
+
+  .nav__links {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    background: rgba(6,12,18,0.97);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+  }
+  .nav__links.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav__links a { font-size: 1.1rem; letter-spacing: 0.04em; }
 }
 
 /* ============================================================
@@ -313,36 +357,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 }
 
 /* ============================================================
-   SOUND TOGGLE
-   ============================================================ */
-.sound-toggle {
-  position: fixed;
-  left: var(--space-3);
-  bottom: var(--space-3);
-  z-index: 90;
-  display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.7rem 1.1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(6,12,18,0.5);
-  backdrop-filter: blur(10px);
-  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--foam-dim);
-  transition: border-color 0.3s, color 0.3s;
-}
-.sound-toggle:hover, .sound-toggle:focus-visible { color: var(--foam); border-color: var(--glow-dim); }
-.sound-toggle__dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--foam-dim);
-  transition: background 0.3s, box-shadow 0.3s;
-}
-.sound-toggle.is-on .sound-toggle__dot {
-  background: var(--glow);
-  box-shadow: 0 0 8px 2px rgba(127,217,207,0.7);
-  animation: pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-
 /* ============================================================
    HERO
    ============================================================ */
@@ -511,8 +525,32 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 .exp-row:hover .exp-row__media, .exp-row:focus-within .exp-row__media { opacity: 1; transform: scale(1) translateX(0); }
 
 @media (max-width: 760px) {
-  .exp-row__media { display: none; }
-  .exp-row { grid-template-columns: 2rem 1fr; }
+  .exp-row {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-areas:
+      "idx text"
+      "media media";
+    row-gap: var(--space-3);
+  }
+  .exp-row__index { grid-area: idx; }
+  .exp-row__text { grid-area: text; }
+  .exp-row__media {
+    grid-area: media;
+    position: relative;
+    inset: auto;
+    top: auto; right: auto; bottom: auto;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16/10;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    border-radius: 2px;
+    overflow: hidden;
+  }
   .exp-row__arrow { display: none; }
 }
 
@@ -594,20 +632,58 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
   grid-auto-rows: 14vw;
   gap: var(--space-2);
 }
-.gallery__item { position: relative; overflow: hidden; border-radius: 2px; }
-.gallery__item .media { transition: transform 0.8s var(--ease-out); }
-.gallery__item:hover .media, .gallery__item:focus-within .media { transform: scale(1.05); }
+.gallery__item {
+  position: relative;
+  border-radius: 2px;
+  perspective: 1400px;
+}
 .gallery__item--large { grid-column: span 3; grid-row: span 2; }
 .gallery__item--medium { grid-column: span 2; grid-row: span 2; }
 .gallery__item--small { grid-column: span 2; grid-row: span 1; }
+
+/* Flip card — front shows the photo, back reveals a short caption.
+   Hover/focus flips it on desktop; a tap toggles `.is-flipped` on
+   touch devices (wired up in script.js). */
+.gallery__flip {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.gallery__item:hover .gallery__flip,
+.gallery__item:focus-within .gallery__flip,
+.gallery__item.is-flipped .gallery__flip {
+  transform: rotateY(180deg);
+}
+.gallery__flip-face {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.gallery__flip-front { transform: rotateY(0deg); }
+.gallery__flip-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3);
+  background: linear-gradient(160deg, var(--current-soft), var(--depth));
+}
+.gallery__desc {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  font-weight: 400;
+  color: var(--foam);
+  line-height: 1.4;
+}
 .gallery__tag {
   position: absolute; left: var(--space-2); bottom: var(--space-2);
   font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--foam-dim);
-  opacity: 0; transform: translateY(6px);
-  transition: opacity 0.4s, transform 0.4s;
 }
-.gallery__item:hover .gallery__tag, .gallery__item:focus-within .gallery__tag { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 900px) {
   .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 44vw; }

@@ -25,6 +25,9 @@
 <!-- Nav -->
 <header class="nav" id="nav">
   <a class="nav__mark" href="#top">OMAR SHERIF</a>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
   <nav class="nav__links" id="navLinks" aria-label="Primary"></nav>
 </header>
 
@@ -36,13 +39,6 @@
     <div class="gauge__marker" id="gaugeMarker" style="top:0%"></div>
   </div>
 </aside>
-
-<!-- Sound toggle -->
-<button class="sound-toggle" id="soundToggle" aria-pressed="false">
-  <span class="sound-toggle__dot"></span>
-  <span id="soundLabel">Sound Off</span>
-</button>
-<audio id="ambientAudio" loop preload="none"></audio>
 
 <main id="top">
 
