@@ -207,6 +207,29 @@
   }
 
   /* ============================================================
+     RENDER: JOURNAL
+     ============================================================ */
+  function renderJournal() {
+    $("journalEyebrow").textContent = CONTENT.journal.eyebrow;
+    $("journalTitle").textContent = CONTENT.journal.title;
+    const grid = $("journalGrid");
+    CONTENT.journal.posts.forEach((post) => {
+      const card = el("article", "journal-card reveal");
+      const mediaWrap = el("div", "journal-card__media");
+      mountMedia(mediaWrap, post.media);
+      const body = el("div", "journal-card__body");
+      body.append(
+        el("span", "journal-card__category", post.category),
+        el("h3", "journal-card__title", post.title),
+        el("p", "journal-card__excerpt", post.excerpt),
+        el("span", "journal-card__read", "Read More →")
+      );
+      card.append(mediaWrap, body);
+      grid.appendChild(card);
+    });
+  }
+
+  /* ============================================================
      RENDER: TESTIMONIALS
      ============================================================ */
   function renderTestimonials() {
@@ -261,10 +284,20 @@
     insta.href = CONTENT.contact.instagramUrl;
     insta.target = "_blank";
     insta.rel = "noopener";
+    const instaSecondary = el("a", "", CONTENT.contact.instagramLabelSecondary);
+    instaSecondary.href = CONTENT.contact.instagramUrlSecondary;
+    instaSecondary.target = "_blank";
+    instaSecondary.rel = "noopener";
     const mail = el("a", "", CONTENT.contact.emailLabel);
     mail.href = CONTENT.contact.emailUrl;
-    links.append(insta, mail);
+    links.append(insta, instaSecondary, mail);
     $("footerCopyright").textContent = `© ${new Date().getFullYear()} ${CONTENT.brand.name}. All rights reserved.`;
+  }
+
+  function renderInstaFloat() {
+    const btn = $("instaFloat");
+    if (!btn) return;
+    btn.href = CONTENT.contact.instagramUrl;
   }
 
   /* ============================================================
@@ -495,10 +528,12 @@
     renderDestinations();
     renderSpecial();
     renderGallery();
+    renderJournal();
     renderTestimonials();
     renderConnection();
     renderFinalCta();
     renderFooter();
+    renderInstaFloat();
 
     initNavScroll();
     initMobileNav();

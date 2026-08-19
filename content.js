@@ -19,14 +19,16 @@
 const CONTENT = {
 
   brand: {
-    name: "Let's Go Diving!",
+    name: "Nitrogen Junkie",
     statement: "Reconnecting Humans with Nature✨",
     location: "Red Sea, Egypt",
   },
 
   contact: {
     instagramLabel: "Instagram",
-    instagramUrl: "https://www.instagram.com/omar_ssherif/",
+    instagramUrl: "https://www.instagram.com/nitrogen.junkiee/",
+    instagramLabelSecondary: "Omar's Instagram",
+    instagramUrlSecondary: "https://www.instagram.com/omar_ssherif/",
     emailLabel: "Email",
     emailUrl: "mailto:omar.sheriff182@gmail.com",
   },
@@ -37,6 +39,7 @@ const CONTENT = {
       { label: "Adventures", href: "#experiences" },
       { label: "Spots", href: "#destinations" },
       { label: "Media", href: "#gallery" },
+      { label: "Journal", href: "#journal" },
       { label: "Contact", href: "#contact" },
     ],
   },
@@ -196,6 +199,20 @@ const CONTENT = {
     ],
   },
 
+  journal: {
+    eyebrow: "Dive Journal",
+    title: "Notes From Below the Surface",
+    posts: [
+      {
+        id: "red-sea-intro",
+        category: "Dive Guide",
+        title: "The Red Sea: A World Worth Diving Into",
+        excerpt: "Warm, clear water. Coral reefs a few meters from the boat. Fish in every color. The Red Sea is one of the most alive places on Earth to dive — and one of the easiest to fall in love with.",
+        media: { type: "image", src: "assets/img/coral-wall-orange.jpg", alt: "A vivid coral reef wall in the Red Sea.", placeholderId: "journal-redsea" },
+      },
+    ],
+  },
+
   testimonials: {
     eyebrow: "People I've Taken Below the Surface",
     title: "People I've Taken Below the Surface",
@@ -235,6 +252,7 @@ const CONTENT = {
       { id: "destinations", label: "20M" },
       { id: "special", label: "DEEPER" },
       { id: "gallery", label: "DEEPER" },
+      { id: "journal", label: "10M" },
       { id: "testimonials", label: "10M" },
       { id: "connection", label: "5M" },
       { id: "contact", label: "SURFACE" },

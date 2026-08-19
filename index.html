@@ -3,28 +3,68 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Omar Sherif — Reconnecting Humans with Nature</title>
-<meta name="description" content="Omar Sherif is a Red Sea diving professional and underwater creator. Diving, guiding, courses and private experiences across El Quseir, Port Ghalib and Marsa Alam." />
+<title>Nitrogen Junkie | Red Sea Diving Instructor — Marsa Alam, El Quseir & Sataya Dolphin Trips</title>
+<meta name="description" content="Nitrogen Junkie — Omar Sherif is a PADI diving instructor based in the Red Sea, Egypt. Guided dives, courses, boat trips and dolphin experiences across El Quseir, Port Ghalib and Marsa Alam." />
+<meta name="keywords" content="Nitrogen Junkie, Red Sea diving instructor, Marsa Alam diving, PADI instructor Egypt, Sataya dolphin trip, El Quseir diving, Port Ghalib diving, Red Sea boat trips, Elphinstone shark dive, Salem Express wreck dive" />
+
+<!-- TODO: replace YOUR-DOMAIN-HERE with the site's real domain once you have
+     a custom domain (or the final Vercel production URL) set up. -->
+<link rel="canonical" href="https://YOUR-DOMAIN-HERE.com/" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Omar Sherif — Reconnecting Humans with Nature" />
-<meta property="og:description" content="A Red Sea diver, PADI Instructor and underwater storyteller. Go below the surface." />
+<meta property="og:title" content="Nitrogen Junkie | Red Sea Diving Instructor" />
+<meta property="og:description" content="PADI diving instructor based in the Red Sea, Egypt. Guided dives, courses, boat trips and dolphin experiences across El Quseir, Port Ghalib and Marsa Alam." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
+<meta property="og:image" content="assets/img/hero.jpg" />
+<meta property="og:url" content="https://YOUR-DOMAIN-HERE.com/" />
 
-<link rel="icon" href="data:," />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nitrogen Junkie | Red Sea Diving Instructor" />
+<meta name="twitter:description" content="PADI diving instructor based in the Red Sea, Egypt. Guided dives, courses, boat trips and dolphin experiences." />
+<meta name="twitter:image" content="assets/img/hero.jpg" />
+
+<!-- Structured data — helps Google understand who Omar is and what he
+     offers, and can unlock richer search results (name, image, social
+     links) beyond a plain blue link. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Omar Sherif",
+  "alternateName": "Nitrogen Junkie",
+  "jobTitle": "PADI Diving Instructor",
+  "description": "PADI diving instructor based in the Red Sea, Egypt, offering guided dives, courses, boat trips and dolphin experiences across El Quseir, Port Ghalib and Marsa Alam.",
+  "image": "assets/img/portrait.jpg",
+  "email": "mailto:omar.sheriff182@gmail.com",
+  "sameAs": ["https://www.instagram.com/nitrogen.junkiee"],
+  "areaServed": {
+    "@type": "Place",
+    "name": "Red Sea, Egypt"
+  },
+  "knowsAbout": ["Scuba Diving", "PADI Diving Instruction", "Dolphin Tours", "Wreck Diving", "Shark Diving"]
+}
+</script>
+
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-512.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+
 <!-- Custom cursor -->
 <div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
 
 <!-- Nav -->
 <header class="nav" id="nav">
-  <a class="nav__mark" href="#top">OMAR SHERIF</a>
+  <a class="nav__mark" href="#top">
+    <img src="assets/img/logo.png" alt="Nitrogen Junkie logo" class="nav__logo-img" />
+    <span>NITROGEN JUNKIE</span>
+  </a>
   <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
@@ -39,6 +79,16 @@
     <div class="gauge__marker" id="gaugeMarker" style="top:0%"></div>
   </div>
 </aside>
+
+<!-- Floating Instagram contact button -->
+<a class="insta-float" id="instaFloat" href="#" target="_blank" rel="noopener" aria-label="Message on Instagram">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+  </svg>
+  <span>Instagram</span>
+</a>
 
 <main id="top">
 
@@ -129,8 +179,19 @@
     </div>
   </section>
 
+  <!-- JOURNAL -->
+  <section class="section section--deep" id="journal">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" id="journalEyebrow"></span>
+        <h2 class="display-2" id="journalTitle"></h2>
+      </div>
+      <div class="journal__grid" id="journalGrid"></div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
-  <section class="section section--deep" id="testimonials">
+  <section class="section section--dark" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" id="testimonialsEyebrow"></span>

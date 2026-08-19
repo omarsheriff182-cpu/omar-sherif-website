@@ -243,7 +243,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
   padding-block: var(--space-2);
   border-bottom: 1px solid var(--line-soft);
 }
-.nav__mark { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.08em; font-weight: 600; }
+.nav__mark { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.08em; font-weight: 600; }
+.nav__logo-img { height: 34px; width: 34px; object-fit: contain; flex-shrink: 0; }
 .nav__links { display: flex; gap: var(--space-4); }
 .nav__links a { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--foam-dim); transition: color 0.3s; }
 .nav__links a:hover, .nav__links a:focus-visible { color: var(--foam); }
@@ -358,6 +359,36 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 
 /* ============================================================
 /* ============================================================
+   FLOATING INSTAGRAM BUTTON
+   ============================================================ */
+.insta-float {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 90;
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(6,12,18,0.7);
+  backdrop-filter: blur(10px);
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--foam-dim);
+  transition: border-color 0.3s, color 0.3s, transform 0.3s var(--ease-out);
+}
+.insta-float svg { width: 15px; height: 15px; flex-shrink: 0; }
+.insta-float:hover, .insta-float:focus-visible {
+  color: var(--foam);
+  border-color: var(--glow-dim);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .insta-float span { display: none; }
+  .insta-float { padding: 0.7rem; }
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero {
@@ -370,10 +401,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
   overflow: hidden;
 }
 .hero__media { position: absolute; inset: 0; z-index: 0; }
-.hero__media .media { animation: heroBreathe 26s ease-in-out infinite; }
+.hero__media .media { animation: heroBreathe 16s ease-in-out infinite; }
 @keyframes heroBreathe {
-  0%, 100% { transform: scale(1.02) translateY(0); }
-  50% { transform: scale(1.08) translateY(-1.5%); }
+  0%, 100% { transform: scale(1.02) translateY(0) translateX(0); }
+  50% { transform: scale(1.14) translateY(-2.5%) translateX(-1%); }
 }
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
@@ -688,6 +719,39 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 @media (max-width: 900px) {
   .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 44vw; }
   .gallery__item--large, .gallery__item--medium, .gallery__item--small { grid-column: span 1; grid-row: span 1; }
+}
+
+/* ============================================================
+   JOURNAL — Dive Guide teasers
+   ============================================================ */
+.journal__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.journal-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+.journal-card__media { aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; }
+.journal-card__media .media { transition: transform 0.8s var(--ease-out); }
+.journal-card:hover .journal-card__media .media { transform: scale(1.05); }
+.journal-card__body { display: flex; flex-direction: column; gap: 0.9rem; }
+.journal-card__category { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--glow); }
+.journal-card__title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 500; line-height: 1.2; }
+.journal-card__excerpt { font-size: 1rem; color: var(--foam-dim); line-height: 1.65; max-width: 32rem; }
+.journal-card__read {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--foam-dim);
+  margin-top: 0.2rem;
+  transition: color 0.3s;
+}
+.journal-card:hover .journal-card__read { color: var(--glow); }
+
+@media (max-width: 860px) {
+  .journal-card { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
