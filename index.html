@@ -225,13 +225,25 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div>
-    <div class="footer__mark" id="footerMark"></div>
+    <div class="footer__brand">
+      <img src="assets/img/logo.png" alt="Nitrogen Junkie logo" class="footer__logo-img" />
+      <div class="footer__mark" id="footerMark"></div>
+    </div>
     <div class="footer__tagline" id="footerTagline"></div>
     <div class="footer__location" id="footerLocation"></div>
   </div>
   <div class="footer__links" id="footerLinks"></div>
   <div class="footer__copyright" id="footerCopyright"></div>
 </footer>
+
+<!-- Gallery lightbox — opens any gallery photo full-size -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+  </figure>
+</div>
 
 <script src="content.js"></script>
 <script src="media.js"></script>

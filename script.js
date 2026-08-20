@@ -182,6 +182,8 @@
       const item = el("div", `gallery__item gallery__item--${g.size} reveal`);
       item.tabIndex = 0;
       item.dataset.cursor = "VIEW";
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-label", `View photo: ${g.description || g.category}`);
 
       const flip = el("div", "gallery__flip");
 
@@ -195,12 +197,17 @@
       flip.append(front, back);
       item.appendChild(flip);
 
-      // Touch devices have no hover — a tap flips the card instead.
-      item.addEventListener("click", () => {
-        if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
-          item.classList.toggle("is-flipped");
-        }
-      });
+      // Every photo opens full-size in the lightbox on click or tap.
+      if (g.media.src) {
+        const openThis = () => openLightbox(g.media.src, g.media.alt, g.description || g.category);
+        item.addEventListener("click", openThis);
+        item.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openThis();
+          }
+        });
+      }
 
       grid.appendChild(item);
     });
@@ -221,8 +228,7 @@
       body.append(
         el("span", "journal-card__category", post.category),
         el("h3", "journal-card__title", post.title),
-        el("p", "journal-card__excerpt", post.excerpt),
-        el("span", "journal-card__read", "Read More →")
+        el("p", "journal-card__excerpt", post.excerpt)
       );
       card.append(mediaWrap, body);
       grid.appendChild(card);
@@ -401,6 +407,49 @@
   }
 
   /* ============================================================
+     INTERACTION: GALLERY LIGHTBOX
+     Opens any gallery photo full-size on click/tap; closes on the
+     close button, a backdrop click, or Escape.
+     ============================================================ */
+  let lightboxLastFocus = null;
+
+  function openLightbox(src, alt, caption) {
+    const box = $("lightbox");
+    const img = $("lightboxImg");
+    const captionEl = $("lightboxCaption");
+    if (!box || !img) return;
+    lightboxLastFocus = document.activeElement;
+    img.src = src;
+    img.alt = alt || "";
+    captionEl.textContent = caption || "";
+    box.classList.add("is-open");
+    box.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    $("lightboxClose").focus();
+  }
+
+  function closeLightbox() {
+    const box = $("lightbox");
+    if (!box || !box.classList.contains("is-open")) return;
+    box.classList.remove("is-open");
+    box.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lightboxLastFocus) lightboxLastFocus.focus();
+  }
+
+  function initLightbox() {
+    const box = $("lightbox");
+    if (!box) return;
+    $("lightboxClose").addEventListener("click", closeLightbox);
+    box.addEventListener("click", (e) => {
+      if (e.target === box) closeLightbox();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  }
+
+  /* ============================================================
      INTERACTION: VIDEO VIEWPORT AUTOPLAY
      Plays each real <video> only while it's actually visible, and
      pauses it the moment it scrolls out of view — keeps the page
@@ -542,6 +591,7 @@
     initDepthGauge();
     initConnectionParticles();
     initVideoAutoplay();
+    initLightbox();
   }
 
   if (document.readyState === "loading") {
